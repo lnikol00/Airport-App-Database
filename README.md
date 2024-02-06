@@ -19,7 +19,7 @@ SQLite Create Table Tutorial:
 https://www.youtube.com/watch?v=Pni6WxHFTUg
 ```
 
-### Other helpful links
+## Other helpful links
 
 ```
 https://www.w3schools.com/sql/default.asp
