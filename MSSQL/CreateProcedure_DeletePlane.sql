@@ -1,0 +1,19 @@
+USE [PlaneDB]
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE PROCEDURE [dbo].[DeletePlane] 
+	@id Int
+AS
+BEGIN
+
+	DELETE FROM
+		Planes
+	WHERE
+		Planes.ID = @id
+END

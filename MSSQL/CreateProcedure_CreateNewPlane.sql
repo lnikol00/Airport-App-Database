@@ -1,0 +1,37 @@
+USE [PlaneDB]
+GO
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[CreatePlane] 
+
+	@Model VARCHAR(MAX),
+	@Year INT,
+	@Country VARCHAR(MAX),
+	@Capacity INT,
+	@Image VARCHAR(MAX),
+	@Type VARCHAR(MAX),
+	@Captain VARCHAR(MAX)
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+
+
+
+BEGIN TRANSACTION
+BEGIN TRY
+
+	INSERT INTO Planes([Model],[Year],[Country],[Capacity],[Image],[Type], [Captain]) VALUES (@Model, @Year, @Country, @Capacity, @Image, @Type, @Captain);
+
+	COMMIT TRANSACTION;
+END TRY
+BEGIN CATCH
+	SELECT ERROR_MESSAGE() AS e;
+	ROLLBACK TRANSACTION
+END CATCH
+END
